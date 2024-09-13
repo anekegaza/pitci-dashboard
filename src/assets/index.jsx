@@ -811,3 +811,54 @@ export const Upcoming = [
     Time: "11:00am -3:00pm",
   },
 ];
+
+export const UserData = [
+  {
+    "User ID": 1,
+    User: "Aneke Ifeanyi",
+    Role: "Administrator",
+    Status: "Active",
+  },
+  {
+    "User ID": 2,
+    User: "Alfred Beckett",
+    Role: "Reviewer",
+    Status: "Active",
+  },
+  {
+    "User ID": 3,
+    User: "Obasi Anthony",
+    Role: "Administrator",
+    Status: "Active",
+  },
+  {
+    "User ID": 4,
+    User: "Eri Mus",
+    Role: "Reviewer",
+    Status: "Inactive",
+  },
+  {
+    "User ID": 5,
+    User: "Elbis Scott",
+    Role: "Administrator",
+    Status: "Active",
+  },
+  {
+    "User ID": 6,
+    User: "Cooper Troys",
+    Role: "Reviewer",
+    Status: "Inactive",
+  },
+  {
+    "User ID": 7,
+    User: "Shawn Cooper",
+    Role: "Administrator",
+    Status: "Active",
+  },
+  {
+    "User ID": 8,
+    User: "Arenalyne Cooper",
+    Role: "Reviewer",
+    Status: "Inactive",
+  },
+];

@@ -24,6 +24,20 @@ const Home = () => {
     {
       header: "Status",
       accessorKey: "Status",
+      cell: (info) => (
+        <span
+          style={{
+            color:
+              info.getValue() === "approved"
+                ? "green"
+                : info.getValue() === "declined"
+                ? "red"
+                : "gray",
+          }}
+        >
+          {info.getValue()}
+        </span>
+      ),
     },
     {
       header: "Date Submitted",

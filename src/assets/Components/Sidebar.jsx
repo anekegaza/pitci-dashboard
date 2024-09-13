@@ -42,7 +42,6 @@ const Sidebar = () => {
           </div>
           <ul className="lists">
             <li>
-              {" "}
               {sideLinks.map((item) => (
                 <div
                   key={item.id}

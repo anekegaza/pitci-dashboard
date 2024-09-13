@@ -4,64 +4,22 @@ import {
   getCoreRowModel,
   flexRender,
   getPaginationRowModel,
-  getSortedRowModel,
-  getFilteredRowModel,
 } from "@tanstack/react-table";
-import { FaSearch, FaSortDown, FaSortUp } from "react-icons/fa";
-import { BiFilterAlt, BiSort, BiSortDown } from "react-icons/bi";
 
 const BasicTable = ({ data, columns }) => {
-  const nome = "Recent Pitches";
   const buttons = "p-2 bg-slate-100 rounded-md text-sm font-inter";
-  const filterButtons =
-    "p-2 bg-slate-100 rounded-md text-sm font-inter flex gap-2 items-center";
-
-  const [sorting, setSorting] = useState([]);
-  const [filtering, setFiltering] = useState("");
 
   const table = useReactTable({
     data,
     columns,
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
-    getSortedRowModel: getSortedRowModel(),
-    getFilteredRowModel: getFilteredRowModel(),
-    state: {
-      sorting: sorting,
-      globalFilter: filtering,
-    },
-    onSortingChange: setSorting,
-    onGlobalFilterChange: setFiltering,
   });
 
   return (
     <div className="w3-container w-full">
       <div className="flex justify-between items-center mb-4">
         <h2 className="font-bold text-xl font-bricolage"> </h2>
-        <div className="flex items-center gap-2">
-          <div className="flex items-center justify-between py-2 px-3 gap-2  rounded-md border">
-            <FaSearch className="cursor-pointer" />
-            <input
-              type="text"
-              placeholder="Search..."
-              value={filtering}
-              onChange={(e) => setFiltering(e.target.value)}
-              className="border-0 outline-0 bg-transparent "
-            />
-          </div>
-          <p className={`${filterButtons}`}>
-            <BiSortDown />
-            Sort by
-            <BiSort />
-          </p>
-          <p
-            className={`${filterButtons}`}
-            // onClick={table.column.getToggleSortingHandler()}
-          >
-            <BiFilterAlt />
-            Filter
-          </p>
-        </div>
       </div>
       <table className="w3-table border-0 ">
         {table.getHeaderGroups().map((headerGroup) => (
@@ -70,17 +28,11 @@ const BasicTable = ({ data, columns }) => {
               <th
                 key={header.id}
                 className=" first:rounded-l-md last:rounded-r-md text-slate-500 flex"
-                // onClick={header.column.getToggleSortingHandler()}
               >
                 {flexRender(
                   header.column.columnDef.header,
                   header.getContext()
                 )}
-                {
-                  { asc: <FaSortUp />, desc: <FaSortDown /> }[
-                    header.column.getIsSorted() ?? null
-                  ]
-                }
               </th>
             ))}
           </tr>
